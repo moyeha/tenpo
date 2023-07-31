@@ -5,7 +5,7 @@ import { useAppSelector } from "../../hooks/useStore";
 import Category from "../Category/category";
 import { StyledText } from "./categories.styles";
 
-export default function Categories() {
+const Categories = () => {
   const { t } = useTranslation();
 
   const categories = useAppSelector((state) => state?.categories);
@@ -26,4 +26,6 @@ export default function Categories() {
       />
     </View>
   );
-}
+};
+
+export default Categories;

@@ -11,7 +11,7 @@ import {
 
 type FavoriteProps = FavoriteType;
 
-export default function Favorite(props: FavoriteProps) {
+const Favorite = (props: FavoriteProps) => {
   return (
     <Container>
       <MainContainer>
@@ -29,4 +29,6 @@ export default function Favorite(props: FavoriteProps) {
       </MainContainer>
     </Container>
   );
-}
+};
+
+export default Favorite;

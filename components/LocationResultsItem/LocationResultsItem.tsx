@@ -1,6 +1,8 @@
 import React from "react";
 import { MainContainer } from "./LocationResultsItem.styles";
 
-export default function LocationResultsItem() {
+const LocationResultsItem = () => {
   return <MainContainer></MainContainer>;
-}
+};
+
+export default LocationResultsItem;

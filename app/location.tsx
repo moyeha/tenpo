@@ -4,7 +4,7 @@ import HomeProducts from "../components/HomeProducts/homeProducts";
 import Navigation from "../components/Navigation/navigation";
 import theme from "../theme";
 
-export default function Page() {
+export default function Location() {
   return (
     <View
       style={{

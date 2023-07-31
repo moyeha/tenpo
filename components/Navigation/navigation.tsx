@@ -4,7 +4,7 @@ import { Image, Pressable } from "react-native";
 import SearchIcon from "../../assets/images/search.svg";
 import { StyledView } from "./navigation.styles";
 
-export default function Navigation() {
+const Navigation = () => {
   return (
     <StyledView>
       <Image source={require("../../assets/images/avatar1.png")} />
@@ -16,4 +16,6 @@ export default function Navigation() {
       </Link>
     </StyledView>
   );
-}
+};
+
+export default Navigation;

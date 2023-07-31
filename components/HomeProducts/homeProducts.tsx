@@ -12,7 +12,7 @@ import {
   MainContainer,
 } from "./homeProducts.styles";
 
-export default function homeProducts() {
+const homeProducts = () => {
   return (
     <MainContainer>
       <Link href="/map" asChild>
@@ -31,4 +31,6 @@ export default function homeProducts() {
       </HomeProductsContainer>
     </MainContainer>
   );
-}
+};
+
+export default homeProducts;

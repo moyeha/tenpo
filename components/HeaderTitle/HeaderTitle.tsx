@@ -6,7 +6,7 @@ import {
   StyledText3,
 } from "./HeaderTitle.styles";
 
-export default function HeaderTitle() {
+const HeaderTitle = () => {
   return (
     <MainContainer>
       <StyledText1>Tenpo</StyledText1>
@@ -14,4 +14,6 @@ export default function HeaderTitle() {
       <StyledText3>DELIVER APP</StyledText3>
     </MainContainer>
   );
-}
+};
+
+export default HeaderTitle;

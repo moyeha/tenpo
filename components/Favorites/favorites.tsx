@@ -5,7 +5,7 @@ import { useAppSelector } from "../../hooks/useStore";
 import Favorite from "../Favorite/favorite";
 import { StyledText } from "./favorites.styles";
 
-export default function Favorites() {
+const Favorites = () => {
   const { t } = useTranslation();
 
   const favorites = useAppSelector((state) => state?.favorites);
@@ -26,4 +26,6 @@ export default function Favorites() {
       />
     </View>
   );
-}
+};
+
+export default Favorites;

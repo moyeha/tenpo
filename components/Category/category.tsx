@@ -9,7 +9,7 @@ import {
 
 type RestaurantProps = CategoryType;
 
-export default function Category(props: RestaurantProps) {
+const Category = (props: RestaurantProps) => {
   return (
     <MainContainer>
       {!!props?.imagePath && <StyledImage source={props?.imagePath} />}
@@ -18,4 +18,6 @@ export default function Category(props: RestaurantProps) {
       </TitleContainer>
     </MainContainer>
   );
-}
+};
+
+export default Category;

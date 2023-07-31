@@ -1,25 +1,43 @@
 import React, { useEffect, useRef } from "react";
-import { Animated, View } from "react-native";
+// import { Animated, View } from "react-native";
+import { View } from "react-native";
 import Phone from "../../assets/images/phone.svg";
 import Moto from "../../assets/images/moto.svg";
+import Animated, {
+  useSharedValue,
+  withTiming,
+  useAnimatedStyle,
+  Easing,
+} from "react-native-reanimated";
 
-export default function HeaderAnimation() {
-  const xPos = useRef(new Animated.ValueXY({ x: 0, y: 0 })).current;
+const HeaderAnimation = () => {
+  const xPos = useSharedValue(0);
+
+  const yPos = useSharedValue(0);
+
+  const config = {
+    duration: 1000,
+  };
 
   useEffect(() => {
-    Animated.timing(xPos, {
-      toValue: { x: -57, y: 12 },
-      duration: 1000,
-      useNativeDriver: false,
-    }).start();
-  }, [xPos]);
+    xPos.value = withTiming(-57, config);
+    yPos.value = withTiming(12, config);
+  }, [xPos, yPos]);
+
+  const style = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateX: xPos.value }, { translateY: yPos.value }],
+    };
+  });
 
   return (
     <View style={{ marginLeft: 70, position: "relative" }}>
-      <Animated.View style={xPos.getLayout()}>
+      <Animated.View style={style}>
         <Moto size={118} />
       </Animated.View>
       <Phone size={118} style={{ position: "absolute" }} />
     </View>
   );
-}
+};
+
+export default HeaderAnimation;

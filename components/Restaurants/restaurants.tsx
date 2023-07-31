@@ -5,7 +5,7 @@ import { StyledText } from "./restaurants.styles";
 import { useAppSelector } from "../../hooks/useStore";
 import Restaurant from "../Restaurant/restaurant";
 
-export default function restaurants() {
+const Restaurants = () => {
   const { t } = useTranslation();
 
   const restaurantes = useAppSelector((state) => state?.restaurantes);
@@ -19,11 +19,13 @@ export default function restaurants() {
       <StyledText>{t("restaurants-title")}</StyledText>
       <FlatList
         data={restaurantes}
-        style={{ marginTop: 10}}
+        style={{ marginTop: 10 }}
         horizontal
         renderItem={({ item }) => <Restaurant {...item} />}
         keyExtractor={(item) => item?.id}
       />
     </View>
   );
-}
+};
+
+export default Restaurants;

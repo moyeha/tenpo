@@ -10,7 +10,7 @@ import {
 
 type RestaurantProps = RestaurantType;
 
-export default function Restaurant(props: RestaurantProps) {
+const Restaurant = (props: RestaurantProps) => {
   return (
     <MainContainer>
       {!!props?.imagePath && <StyledImage source={props?.imagePath} />}
@@ -21,4 +21,6 @@ export default function Restaurant(props: RestaurantProps) {
       </SubTitleContainer>
     </MainContainer>
   );
-}
+};
+
+export default Restaurant;
