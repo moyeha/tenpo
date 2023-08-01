@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { GooglePlaceData } from "react-native-google-places-autocomplete";
-import { Direccion } from "../store/direcciones/slice";
+import { Direction } from "../store/directions/slice";
 import { usePeticionActions } from "./usePeticionActions";
 import { useAppSelector } from "./useStore";
 
@@ -17,7 +17,7 @@ const useAddress = () => {
     (state) => state?.paticiones
   );
 
-  const [data, setData] = useState<Direccion | null>(null);
+  const [data, setData] = useState<Direction | null>(null);
 
   const [error, setError] = useState<string | null>(null);
 

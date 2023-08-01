@@ -1,14 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import direccionesReducer from "./direcciones/slice";
-import paticionesReducer from "./requests/slice";
-import restaurantesReducer from "./restaurantes/slice";
 import categoriesReducer from "./categories/slice";
+import directionsReducer from "./directions/slice";
 import favoritesReducer from "./favorites/slice";
+import restaurantesReducer from "./restaurantes/slice";
 
 export const store = configureStore({
   reducer: {
-    direcciones: direccionesReducer,
-    paticiones: paticionesReducer,
+    directions: directionsReducer,
     restaurantes: restaurantesReducer,
     categories: categoriesReducer,
     favorites: favoritesReducer,

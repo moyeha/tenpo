@@ -1,26 +1,18 @@
 import { Link } from "expo-router";
 import React from "react";
 import { Pressable } from "react-native";
-import Direccion from "../../assets/images/pin.svg";
+import AddAddress from "../AddAddress/AddAddress";
 import Categories from "../Categories/categories";
 import Favorites from "../Favorites/favorites";
 import Restaurants from "../Restaurants/restaurants";
-import {
-  AddDirectionContainer,
-  AddDirectionLabel,
-  HomeProductsContainer,
-  MainContainer,
-} from "./homeProducts.styles";
+import { HomeProductsContainer, MainContainer } from "./homeProducts.styles";
 
 const homeProducts = () => {
   return (
     <MainContainer>
-      <Link href="/map" asChild>
+      <Link href="/location" asChild>
         <Pressable>
-          <AddDirectionContainer>
-            <Direccion />
-            <AddDirectionLabel>Cambiarlo dinamicamente</AddDirectionLabel>
-          </AddDirectionContainer>
+          <AddAddress>Cambiarlo dinamicamente2</AddAddress>
         </Pressable>
       </Link>
 

@@ -7,6 +7,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "../theme";
 
 import "../i18next";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function Layout() {
   const [fontsLoaded] = useFonts({
@@ -22,7 +23,9 @@ export default function Layout() {
   return (
     <ThemeProvider theme={theme}>
       <Provider store={store}>
-        <Slot />
+        <SafeAreaProvider>
+          <Slot />
+        </SafeAreaProvider>
       </Provider>
     </ThemeProvider>
   );
