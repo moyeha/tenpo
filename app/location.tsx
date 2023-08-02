@@ -40,7 +40,6 @@ export default function LocationMap() {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-    //   setLocation(location);
     })();
   }, []);
 

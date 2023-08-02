@@ -3,7 +3,6 @@ import styled from "styled-components";
 import theme from "../../theme";
 
 const MainContainer = styled(View)({
-  // flex: 1,
   justifyContent: "center",
   alignItems: "center",
 });
@@ -29,4 +28,5 @@ const StyledImage = styled(Image)({
   marginBottom: "8px",
 });
 
-export { TitleContainer, MainContainer, StyledImage, Title };
+export { MainContainer, StyledImage, Title, TitleContainer };
+

@@ -4,21 +4,20 @@ import theme from "../../theme";
 
 const RestaurantsHeaderContainer = styled(View)({
   backgroundColor: theme.colors.cyan,
-  height: "20%",
-  // flex: 1,
+  height: "25%",
 });
 
 const RestaurantsHeaderMain = styled(View)({
   display: "flex",
   flexDirection: "row",
   flex: 1,
-  marginTop: "40px",
+  marginTop: "10px",
+  alignItems: "center",
 });
 
 const RestaurantsHeaderSide = styled(View)({
   display: "flex",
   flex: 1,
-  // backgroundColor: "red",
   justifyContent: "center",
   alignItems: "center",
 });
@@ -31,14 +30,12 @@ const RestaurantsHeaderTitle = styled(Text)({
   fontFamily: "Gotham-Black",
   fontSize: "12px",
   color: theme.colors.green2,
-  margin: "10px",
 });
 
 const RestaurantsHeaderTitle2 = styled(Text)({
   fontFamily: "Gotham-Light",
   fontSize: "16px",
   color: theme.colors.green2,
-  margin: "5px 10px",
 });
 
 const TargetContainer = styled(View)({

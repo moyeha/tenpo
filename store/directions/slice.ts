@@ -59,9 +59,6 @@ export const directionsSlice = createSlice({
     filterByName: (state, action: PayloadAction<string>) => {
       if (!action?.payload) return state;
 
-      // return state.directions.filter((d) =>
-      //   d.place?.toLowerCase()?.includes(action?.payload?.toLocaleLowerCase())
-      // );
       return {
         ...state,
         directions: state.directions.filter((d) =>

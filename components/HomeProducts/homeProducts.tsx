@@ -23,7 +23,7 @@ const homeProducts = () => {
           {selectedDirection ? (
             <AddAddress>{selectedDirection?.place}</AddAddress>
           ) : (
-            <AddAddress>Cambiarlo dinamicamente</AddAddress>
+            <AddAddress big>Agregar Direccion de entrega</AddAddress>
           )}
         </Pressable>
       </Link>

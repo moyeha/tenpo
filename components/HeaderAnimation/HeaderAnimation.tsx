@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-// import { Animated, View } from "react-native";
 import { View } from "react-native";
 import Phone from "../../assets/images/phone.svg";
 import Moto from "../../assets/images/moto.svg";

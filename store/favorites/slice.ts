@@ -36,5 +36,3 @@ export const favoritesSlice = createSlice({
 });
 
 export default favoritesSlice.reducer;
-
-// export const { getRestaurantesName } = favoritesSlice.actions;
