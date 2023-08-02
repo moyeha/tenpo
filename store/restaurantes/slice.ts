@@ -4,7 +4,7 @@ import { ImageURISource } from "react-native";
 export type Restaurant = {
   id: string;
   nombre: string;
-  imagePath: ImageURISource;
+  imagePath?: ImageURISource;
   delay: string;
   rating: number;
 };

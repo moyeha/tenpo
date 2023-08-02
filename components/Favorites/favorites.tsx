@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { FlatList, View } from "react-native";
-import { useAppSelector } from "../../hooks/useStore";
+import { useAppSelector } from "../../hooks/redux-hooks/useStore";
 import Favorite from "../Favorite/favorite";
 import { StyledText } from "./favorites.styles";
 

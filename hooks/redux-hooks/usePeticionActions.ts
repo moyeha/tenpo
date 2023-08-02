@@ -1,4 +1,4 @@
-import { addPeticion, addFallo } from "../store/requests/slice";
+import { addPeticion, addFallo } from "../../store/requests/slice";
 
 import { useAppDispatch } from "./useStore";
 

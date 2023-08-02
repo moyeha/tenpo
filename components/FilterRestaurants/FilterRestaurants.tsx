@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { FlatList, Image, Text } from "react-native";
-import { useAppSelector } from "../../hooks/useStore";
+import { FlatList, Image } from "react-native";
+import { useAppSelector } from "../../hooks/redux-hooks/useStore";
 import { Restaurant } from "../../store/restaurantes/slice";
 import FilterRestaurantsItem from "../FilterRestaurantsItem/FilterRestaurantsItem";
-import { StyledTextInput } from "../LocationHeader/LocationHeader.styles";
+import Search from "../Search/Search";
 import {
   Container,
   StyledButton,
@@ -11,7 +11,6 @@ import {
   StyledButtonLabel2,
   StyledFilters,
 } from "./FilterRestaurants.styles";
-import Search from "../Search/Search";
 
 const FilterRestaurants = () => {
   const [filteredDirections, setFilteredDirections] = useState<Restaurant[]>(
@@ -53,10 +52,6 @@ const FilterRestaurants = () => {
         renderItem={({ item }) => <FilterRestaurantsItem item={item} />}
         keyExtractor={(item) => item?.id}
       />
-      {/* <StyledTextInput
-        style={{ position: "absolute", left: 0, top: 0, right: 0 }}
-        onChangeText={filterDirections}
-      /> */}
       <Search onChangeText={filterDirections} />
     </Container>
   );

@@ -1,7 +1,7 @@
 import * as Location from "expo-location";
 import React, { useState } from "react";
 import Autocomplete from "react-native-autocomplete-input";
-import { useAppSelector } from "../../hooks/useStore";
+import { useAppSelector } from "../../hooks/redux-hooks/useStore";
 import { Direction } from "../../store/directions/slice";
 import FilterDirectionsItem from "../FilterDirectionsItem/FilterDirectionsItem";
 import { StyledTextInput } from "../LocationHeader/LocationHeader.styles";
@@ -42,7 +42,7 @@ const FilterLocations = ({ onSelectAddress }: FilterDirectionsProps) => {
         renderTextInput={() => (
           <StyledTextInput onChangeText={filterDirections} />
         )}
-        inputContainerStyle={{ borderWidth: 0}}
+        inputContainerStyle={{ borderWidth: 0 }}
         flatListProps={{
           keyExtractor: (_, idx) => idx,
           renderItem: ({ item }) => (

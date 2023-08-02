@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { FlatList, Image, ScrollView, View } from "react-native";
 import { StyledText } from "./restaurants.styles";
-import { useAppSelector } from "../../hooks/useStore";
+import { useAppSelector } from "../../hooks/redux-hooks/useStore";
 import Restaurant from "../Restaurant/restaurant";
 
 const Restaurants = () => {

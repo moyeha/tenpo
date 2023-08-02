@@ -11,7 +11,7 @@ type AddAddressProps = {
 const AddAddress = ({ children, big, onlyText }: AddAddressProps) => {
   return (
     <AddDirectionContainer>
-      {!onlyText && <Direccion />}
+      {/* {!onlyText && <Direccion />} */}
       <AddDirectionLabel big={big}>{children}</AddDirectionLabel>
     </AddDirectionContainer>
   );

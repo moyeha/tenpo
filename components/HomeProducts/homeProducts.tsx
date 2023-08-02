@@ -6,7 +6,7 @@ import Categories from "../Categories/categories";
 import Favorites from "../Favorites/favorites";
 import Restaurants from "../Restaurants/restaurants";
 import { HomeProductsContainer, MainContainer } from "./homeProducts.styles";
-import { useAppSelector } from "../../hooks/useStore";
+import { useAppSelector } from "../../hooks/redux-hooks/useStore";
 
 const homeProducts = () => {
   const selectedDirection = useAppSelector(

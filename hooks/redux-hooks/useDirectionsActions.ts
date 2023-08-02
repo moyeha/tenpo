@@ -2,7 +2,7 @@ import {
   Direction,
   filterByName,
   selectDirection,
-} from "../store/directions/slice";
+} from "../../store/directions/slice";
 
 import { useAppDispatch } from "./useStore";
 

@@ -1,4 +1,4 @@
-import { getRestaurantesName } from "../store/restaurantes/slice";
+import { getRestaurantesName } from "../../store/restaurantes/slice";
 
 import { useAppDispatch } from "./useStore";
 

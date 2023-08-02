@@ -7,9 +7,9 @@ import styled from "styled-components";
 import AddAddress from "../components/AddAddress/AddAddress";
 import AddAddressInfo from "../components/AddAddressInfo/AddAddressInfo";
 import FilterLocations from "../components/FilterDirections/filterDirections";
-import { useDirectionsActions } from "../hooks/useDirectionsActions";
+import { useDirectionsActions } from "../hooks/redux-hooks/useDirectionsActions";
 import theme from "../theme";
-import { useAppSelector } from "../hooks/useStore";
+import { useAppSelector } from "../hooks/redux-hooks/useStore";
 import { router } from "expo-router";
 
 export default function LocationMap() {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const fetchDataFromApi = async () => {
   const response = await fetch("https://tenpo.free.beeceptor.com/home");

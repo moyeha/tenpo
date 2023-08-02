@@ -4,7 +4,7 @@ import { ImageURISource } from "react-native";
 export type Category = {
   id: string;
   nombre: string;
-  imagePath: ImageURISource;
+  imagePath?: ImageURISource;
 };
 
 const initialState: Category[] = [

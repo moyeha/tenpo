@@ -12,7 +12,7 @@ const FilterDirectionsItem = ({
   onPress,
 }: FilterDirectionsItemProps) => {
   return (
-    <Pressable onPress={onPress}>
+    <Pressable onPress={onPress} aria-label="filter-directions-item">
       <Container>
         <Text>{title}</Text>
       </Container>

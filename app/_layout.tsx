@@ -21,12 +21,12 @@ export default function Layout() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
         <SafeAreaProvider>
           <Slot />
         </SafeAreaProvider>
-      </Provider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </Provider>
   );
 }
