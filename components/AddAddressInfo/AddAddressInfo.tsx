@@ -3,6 +3,7 @@ import { Pressable, PressableProps, Text } from "react-native";
 import AddAddressButton from "../AddAddressButton/AddAddressButton";
 import { Container, TextArea, Title } from "./AddAddressInfo.styles";
 import BottomSheet from "@gorhom/bottom-sheet";
+import useAsyncWithRetry from "../../hooks/useAsyncWithRetry";
 
 type AddAddressInfoProps = Pick<PressableProps, "onPress"> & {
   open: boolean;
@@ -13,11 +14,19 @@ const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
 
   const snapPoints = useMemo(() => ["5%", "100%"], []);
 
+  const { fetchData, error, data, loading } = useAsyncWithRetry();
+
   useEffect(() => {
     if (open) {
       bottomSheetRef.current?.expand();
     }
   }, [open]);
+
+  useEffect(() => {
+    if (data) {
+      onPress?.(null);
+    }
+  }, [data, onPress]);
 
   return (
     <Container open={open}>
@@ -29,6 +38,8 @@ const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
       >
         <Title>Agregar Informacion de entrega</Title>
         <Text> Depto, Oficina, Piso, Block </Text>
+        <Text>{JSON.stringify(data)} </Text>
+        {error && <Text>Intentar de nuevo</Text>}
         <TextArea
           multiline
           // Android
@@ -38,8 +49,14 @@ const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
           autoCorrect={false}
           autoCapitalize="none"
         />
-        <AddAddressButton style={{ marginTop: 20 }} onPress={onPress}>
-          Agregar direccion
+        <AddAddressButton
+          disabled={loading}
+          style={{ marginTop: 20 }}
+          onPress={(ev) => {
+            fetchData();
+          }}
+        >
+          {error ? "try again" : "Agregar direccion"}
         </AddAddressButton>
       </BottomSheet>
     </Container>
