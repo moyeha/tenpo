@@ -10,6 +10,7 @@ export default function Page() {
       style={{
         backgroundColor: theme.colors.gray3,
       }}
+      aria-label="index-page"
     >
       <ScrollView showsVerticalScrollIndicator={false}>
         <View>

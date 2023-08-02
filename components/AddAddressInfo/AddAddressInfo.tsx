@@ -1,15 +1,18 @@
+import BottomSheet from "@gorhom/bottom-sheet";
 import React, { useEffect, useMemo, useRef } from "react";
-import { Pressable, PressableProps, Text } from "react-native";
+import { PressableProps, Text } from "react-native";
+import useAsyncWithRetry from "../../hooks/useAsyncWithRetry";
 import AddAddressButton from "../AddAddressButton/AddAddressButton";
 import { Container, TextArea, Title } from "./AddAddressInfo.styles";
-import BottomSheet from "@gorhom/bottom-sheet";
-import useAsyncWithRetry from "../../hooks/useAsyncWithRetry";
+import { useTranslation } from "react-i18next";
 
 type AddAddressInfoProps = Pick<PressableProps, "onPress"> & {
   open: boolean;
 };
 
 const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
+  const { t } = useTranslation();
+
   const bottomSheetRef = useRef<BottomSheet>(null);
 
   const snapPoints = useMemo(() => ["5%", "100%"], []);
@@ -28,6 +31,12 @@ const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
     }
   }, [data, onPress]);
 
+  const label = error
+    ? t("add-address-try-again")
+    : loading
+    ? t("add-address-adding")
+    : t("add-address");
+
   return (
     <Container open={open}>
       <BottomSheet
@@ -38,8 +47,6 @@ const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
       >
         <Title>Agregar Informacion de entrega</Title>
         <Text> Depto, Oficina, Piso, Block </Text>
-        <Text>{JSON.stringify(data)} </Text>
-        {error && <Text>Intentar de nuevo</Text>}
         <TextArea
           multiline
           // Android
@@ -56,7 +63,7 @@ const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
             fetchData();
           }}
         >
-          {error ? "try again" : "Agregar direccion"}
+          {label}
         </AddAddressButton>
       </BottomSheet>
     </Container>

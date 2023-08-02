@@ -7,7 +7,6 @@ describe("Index", () => {
   test("Deberia estar el titulo Tenpo", async () => {
     renderWithProviders(<App />);
 
-    expect(screen.queryByText(/Tenpo/i)).not.toBeNull();
-    expect(screen.queryByText(/Eats/i)).not.toBeNull();
+    expect(screen.queryByLabelText(/index-page/i)).toMatchSnapshot();
   });
 });

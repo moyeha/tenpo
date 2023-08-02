@@ -5,13 +5,16 @@ import {
   StyledText2,
   StyledText3,
 } from "./HeaderTitle.styles";
+import { useTranslation } from "react-i18next";
 
 const HeaderTitle = () => {
+  const { t } = useTranslation();
+
   return (
     <MainContainer>
-      <StyledText1>Tenpo</StyledText1>
-      <StyledText2>Eats</StyledText2>
-      <StyledText3>DELIVER APP</StyledText3>
+      <StyledText1>{t("header-title1")}</StyledText1>
+      <StyledText2>{t("header-title2")}</StyledText2>
+      <StyledText3>{t("header-title3")}</StyledText3>
     </MainContainer>
   );
 };

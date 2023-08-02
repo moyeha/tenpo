@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const fetchDataFromApi = async () => {
-  const response = await fetch("https://tenpo.free.beeceptor.com/home");
+  const response = await fetch("https://tenpo2.free.beeceptor.com/tenpo");
 
   return response.json();
 };
