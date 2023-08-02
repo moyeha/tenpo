@@ -11,12 +11,12 @@ type FilterDirectionsProps = {
   onSelectAddress: (coords: Location.LocationObjectCoords) => void;
 };
 
-const FilterDirections = ({ onSelectAddress }: FilterDirectionsProps) => {
+const FilterLocations = ({ onSelectAddress }: FilterDirectionsProps) => {
   const [query, setQuery] = useState("");
 
   const [filteredDirections, setFilteredDirections] = useState<Direction[]>([]);
 
-  const directions = useAppSelector((state) => state?.directions);
+  const directions = useAppSelector((state) => state?.directions.directions);
 
   const filterDirections = (text: string) => {
     setQuery(text);
@@ -42,6 +42,7 @@ const FilterDirections = ({ onSelectAddress }: FilterDirectionsProps) => {
         renderTextInput={() => (
           <StyledTextInput onChangeText={filterDirections} />
         )}
+        inputContainerStyle={{ borderWidth: 0}}
         flatListProps={{
           keyExtractor: (_, idx) => idx,
           renderItem: ({ item }) => (
@@ -65,4 +66,4 @@ const FilterDirections = ({ onSelectAddress }: FilterDirectionsProps) => {
   );
 };
 
-export default FilterDirections;
+export default FilterLocations;

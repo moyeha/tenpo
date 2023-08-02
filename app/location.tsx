@@ -5,15 +5,31 @@ import { View } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import styled from "styled-components";
 import AddAddress from "../components/AddAddress/AddAddress";
-import FilterDirections from "../components/FilterDirections/filterDirections";
-import theme from "../theme";
 import AddAddressInfo from "../components/AddAddressInfo/AddAddressInfo";
+import FilterLocations from "../components/FilterDirections/filterDirections";
+import { useDirectionsActions } from "../hooks/useDirectionsActions";
+import theme from "../theme";
+import { useAppSelector } from "../hooks/useStore";
+import { router } from "expo-router";
 
 export default function LocationMap() {
   const [location, setLocation] = useState<Location.LocationObject | null>(
     null
   );
+
+  const selectedDirection = useAppSelector(
+    (state) => state?.directions.selected
+  );
+
+  const { select } = useDirectionsActions();
+
   const [errorMsg, setErrorMsg] = useState("");
+
+  useEffect(() => {
+    if (selectedDirection) {
+      router.replace("/");
+    }
+  }, [selectedDirection]);
 
   useEffect(() => {
     (async () => {
@@ -24,7 +40,7 @@ export default function LocationMap() {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
+    //   setLocation(location);
     })();
   }, []);
 
@@ -56,9 +72,17 @@ export default function LocationMap() {
         />
       </MapView>
 
-      <FilterDirections onSelectAddress={onDirectionChanged} />
+      <FilterLocations onSelectAddress={onDirectionChanged} />
 
-      <AddAddressInfo />
+      <AddAddressInfo
+        open={!!location?.coords}
+        onPress={() => {
+          select({
+            coords: location?.coords as Location.LocationObjectCoords,
+            place: "Lugar seleccionado",
+          });
+        }}
+      />
     </LocationContainer>
   );
 }

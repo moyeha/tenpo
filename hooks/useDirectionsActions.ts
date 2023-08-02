@@ -1,4 +1,8 @@
-import { filterByName } from "../store/directions/slice";
+import {
+  Direction,
+  filterByName,
+  selectDirection,
+} from "../store/directions/slice";
 
 import { useAppDispatch } from "./useStore";
 
@@ -9,7 +13,12 @@ export const useDirectionsActions = () => {
     dispatch(filterByName(name));
   };
 
+  const select = (direction: Direction) => {
+    dispatch(selectDirection(direction));
+  };
+
   return {
     filterDirections,
+    select,
   };
 };

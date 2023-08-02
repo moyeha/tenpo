@@ -17,4 +17,10 @@ const AddDirectionLabel = styled(Text)<{ big: boolean }>(({ big }) => ({
   color: theme.colors.green,
 }));
 
-export { AddDirectionContainer, AddDirectionLabel };
+const AddDirectionLabel2 = styled(Text)({
+  fontFamily: "Gotham-Light",
+  fontSize: "18px",
+  color: theme.colors.green2,
+});
+
+export { AddDirectionContainer, AddDirectionLabel, AddDirectionLabel2 };

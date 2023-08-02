@@ -6,13 +6,25 @@ import Categories from "../Categories/categories";
 import Favorites from "../Favorites/favorites";
 import Restaurants from "../Restaurants/restaurants";
 import { HomeProductsContainer, MainContainer } from "./homeProducts.styles";
+import { useAppSelector } from "../../hooks/useStore";
 
 const homeProducts = () => {
+  const selectedDirection = useAppSelector(
+    (state) => state?.directions.selected
+  );
+
   return (
     <MainContainer>
-      <Link href="/location" asChild>
+      <Link
+        href={selectedDirection?.place ? "/restaurants" : "location"}
+        asChild
+      >
         <Pressable>
-          <AddAddress>Cambiarlo dinamicamente2</AddAddress>
+          {selectedDirection ? (
+            <AddAddress>{selectedDirection?.place}</AddAddress>
+          ) : (
+            <AddAddress>Cambiarlo dinamicamente</AddAddress>
+          )}
         </Pressable>
       </Link>
 

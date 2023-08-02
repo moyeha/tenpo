@@ -1,22 +1,30 @@
-import React, { useMemo, useRef } from "react";
-import { PressableProps, Text } from "react-native";
+import React, { useEffect, useMemo, useRef } from "react";
+import { Pressable, PressableProps, Text } from "react-native";
 import AddAddressButton from "../AddAddressButton/AddAddressButton";
 import { Container, TextArea, Title } from "./AddAddressInfo.styles";
 import BottomSheet from "@gorhom/bottom-sheet";
 
-type AddAddressInfoProps = Pick<PressableProps, "onPress">;
+type AddAddressInfoProps = Pick<PressableProps, "onPress"> & {
+  open: boolean;
+};
 
-const AddAddressInfo = ({ onPress }: AddAddressInfoProps) => {
+const AddAddressInfo = ({ onPress, open }: AddAddressInfoProps) => {
   const bottomSheetRef = useRef<BottomSheet>(null);
 
-  const snapPoints = useMemo(() => ["70%", "100%"], []);
+  const snapPoints = useMemo(() => ["5%", "100%"], []);
+
+  useEffect(() => {
+    if (open) {
+      bottomSheetRef.current?.expand();
+    }
+  }, [open]);
 
   return (
-    <Container>
+    <Container open={open}>
       <BottomSheet
         style={{ padding: 20 }}
         ref={bottomSheetRef}
-        index={1}
+        index={0}
         snapPoints={snapPoints}
       >
         <Title>Agregar Informacion de entrega</Title>
