@@ -9,6 +9,44 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ThemeProvider } from "styled-components";
 import theme from "./theme";
 
+const locales = {
+  "restaurants-title": "Restaurantes",
+  "categories-title": "Categorias",
+  "favorites-title": "Tus Favoritos",
+  "add-address-title": "Agregar información de entrega",
+  "add-address-subtitle": "Depto, Oficina, Piso, Block",
+  "add-address-try-again": "Intentar de nuevo",
+  "add-address-adding": "Agregando",
+  "add-address": "Agregar direccion",
+  "filter-restaurants-title1": "Solo Locales abiertos",
+  "filter-restaurants-title2": "Area de busqueda:",
+  "filter-restaurants-title3": "1KM",
+  "header-title1": "Tenpo",
+  "header-title2": "Eats",
+  "header-title3": "DELIVER APP",
+  "home-products-add-address": "Agregar Direccion de entrega",
+};
+
+type Keys = keyof typeof locales;
+
+jest.mock("i18next");
+
+jest.mock("react-i18next", () => ({
+  // this mock makes sure any components using the translate hook can use it without a warning being shown
+  useTranslation: () => {
+    return {
+      t: (str: string) => locales?.[str],
+      i18n: {
+        changeLanguage: () => new Promise(() => {}),
+      },
+    };
+  },
+  initReactI18next: {
+    type: "3rdParty",
+    init: () => jest.fn(),
+  },
+}));
+
 const initialMetrics = {
   frame: { height: 0, width: 0, x: 0, y: 0 },
   insets: { bottom: 0, left: 0, right: 0, top: 0 },

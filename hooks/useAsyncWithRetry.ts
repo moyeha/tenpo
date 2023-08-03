@@ -15,7 +15,6 @@ const useAsyncWithRetry = (retryCount = 3) => {
 
   const [retryAttempts, setRetryAttempts] = useState(0);
 
-  //   useEffect(() => {
   const fetchData = async () => {
     setLoading(true);
 
@@ -37,9 +36,6 @@ const useAsyncWithRetry = (retryCount = 3) => {
       setLoading(false);
     }
   };
-
-  //     fetchData();
-  //   }, [retryAttempts, retryCount]);
 
   const retry = () => {
     setRetryAttempts(retryAttempts + 1);

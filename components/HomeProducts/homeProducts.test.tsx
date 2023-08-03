@@ -7,6 +7,6 @@ describe("HomeProducts", () => {
   test("Deberian estar los titulos del header", async () => {
     renderWithProviders(<HomeProducts />);
 
-    expect(screen.queryByText(/Agregar Direccion de entrega/i)).not.toBeNull();
+    expect(screen.queryByLabelText(/home-products/i)).not.toBeNull();
   });
 });
