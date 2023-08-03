@@ -82,4 +82,4 @@ Environment Setup : https://docs.expo.dev/get-started/installation/ (React nativ
 - Location
 - Restaurant
 
-# Unit Test usign react testing library
+# Unit Test usando react testing library
